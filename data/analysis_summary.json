@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "국내 학술지 동향 분석",
+    "subtitle": "KCI 통계 기반 현황 진단과 국내 학계의 발전 방향 제언",
+    "asOfDate": "2026.10.23",
+    "sourceUrl": "https://www.kci.go.kr/kciportal/po/statistics/poStatisticsMain.kci",
+    "recordCount": 75,
+    "lastVerified": "2026-10-23"
+  },
+  "keyMetrics": {
+    "totalJournals": 6359,
+    "indexedJournals": 2932,
+    "indexedRatio": 46.11,
+    "totalOrganizations": 11168,
+    "indexedPublishingOrganizations": 2729,
+    "orgIndexedRatio": 24.44
+  },
+  "journalPublishers": {
+    "categories": ["학회", "대학부설연구소", "기타(일반)기관"],
+    "total": [3466, 2664, 229],
+    "indexed": [2275, 532, 125],
+    "totalSum": 6359,
+    "indexedSum": 2932,
+    "indexedRatioByPublisher": {
+      "society": 65.64,
+      "universityInstitute": 19.97,
+      "generalOrg": 54.59
+    }
+  },
+  "indexedStatus": {
+    "tiers": [
+      { "name": "우수등재", "count": 67, "ratio": 2.29 },
+      { "name": "등재", "count": 2691, "ratio": 91.78 },
+      { "name": "등재후보", "count": 174, "ratio": 5.93 }
+    ],
+    "total": 2932
+  },
+  "indexedByField": {
+    "summary": [
+      { "field": "인문사회분야", "count": 2077, "ratio": 70.84 },
+      { "field": "과학기술분야", "count": 855, "ratio": 29.16 }
+    ],
+    "humanitiesSocialBreakdown": {
+      "humanities": { "excellent": 12, "indexed": 633, "candidate": 25, "total": 670 },
+      "socialSciences": { "excellent": 22, "indexed": 971, "candidate": 68, "total": 1061 },
+      "artsAthletics": { "excellent": 3, "indexed": 158, "candidate": 13, "total": 174 },
+      "interdisciplinary": { "excellent": 2, "indexed": 147, "candidate": 23, "total": 172 },
+      "subtotal": { "excellent": 39, "indexed": 1909, "candidate": 129, "total": 2077 }
+    },
+    "stemBreakdown": {
+      "naturalSciences": { "excellent": 5, "indexed": 122, "candidate": 2, "total": 129 },
+      "engineering": { "excellent": 14, "indexed": 239, "candidate": 10, "total": 263 },
+      "medicalSciences": { "excellent": 4, "indexed": 341, "candidate": 28, "total": 373 },
+      "agricultureOcean": { "excellent": 5, "indexed": 80, "candidate": 5, "total": 90 },
+      "subtotal": { "excellent": 28, "indexed": 782, "candidate": 45, "total": 855 }
+    }
+  },
+  "publishingOrganizations": {
+    "categories": ["학회", "대학부설연구소", "일반기관"],
+    "totalOrgs": [4437, 6534, 197],
+    "indexedOrgs": [2118, 498, 113],
+    "totalSum": 11168,
+    "indexedSum": 2729,
+    "indexedOrgRatioByField": {
+      "humanitiesSocial": { "count": 1947, "ratio": 71.35 },
+      "stem": { "count": 761, "ratio": 27.89 },
+      "other": { "count": 21, "ratio": 0.77 },
+      "total": 2729
+    }
+  }
+}

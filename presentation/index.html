@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국내 학술지 동향 분석 - KCI 통계 기반 현황 진단과 발전 방향 제언</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="presentation-app">
+  <div class="slide-stage">
+
+    <!-- ====================================================================
+         1부. 분석의 배경과 국내 학술지 현황 (Slide 01 ~ 05)
+         ==================================================================== -->
+
+    <!-- Slide 01: 표지 -->
+    <section class="slide slide-cover active" id="slide-1"
+      data-notes="[발표자 노트] 안녕하십니까. '국내 학술지 동향 분석 - KCI 통계 기반 현황 진단과 국내 학계의 발전 방향 제언' 발표를 시작하겠습니다. 본 발표는 한국연구재단 KCI의 최신 통계(2026.10.23 기준) 데이터를 실증적으로 검증하고, 발행 구조와 등재 현황을 면밀히 진단하여 향후 국내 학술 생태계의 지속 가능한 발전 방향을 모색하고자 마련되었습니다.">
+      <div class="cover-badge">KCI 통계 기반 실증 정책 보고서</div>
+      <h1 class="cover-title">국내 학술지 동향 분석</h1>
+      <p class="cover-subtitle">KCI 통계 기반 현황 진단과 국내 학계의 발전 방향 제언</p>
+      
+      <div class="cover-meta">
+        <div class="meta-item">
+          <span class="meta-label">분석 대상 및 출처</span>
+          <span class="meta-val">한국학술지인용색인 (KCI) 기관·학술지 통계</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">데이터 기준일</span>
+          <span class="meta-val">2026년 10월 23일</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">검증 레코드 규모</span>
+          <span class="meta-val">75개 세부 통계 지표 (무결성 100% 검증)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 02: 분석 목적과 핵심 질문 -->
+    <section class="slide" id="slide-2"
+      data-notes="[발표자 노트] 본 분석은 단순한 통계 수치 나열을 지양하고, 국내 학술 생태계를 관통하는 6가지 본질적인 질문에 답하고자 합니다. 특히 인문사회와 과학기술 분야 간의 극명한 격차의 원인을 밝히기 위한 가설을 수립하고, 향후 학계가 수행해야 할 미래 연구 과제로 연결하는 데 목적이 있습니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">1부. 분석 배경</span>
+            <span class="slide-indicator-tag">Slide 02 / 20</span>
+          </div>
+          <h2 class="slide-title">분석 목적과 6대 핵심 질문</h2>
+          <p class="slide-subtitle">단순 현황 집계를 넘어 지속 가능한 학술 생태계를 위한 구조적 질문 도출</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card accent-border" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <h4 style="font-size: 1.25rem; color: var(--accent-secondary); margin-bottom: 1rem;">분석의 핵심 방향성</h4>
+            <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem;">
+              국내 학술지의 <strong>발행 주체, 등재 체계, 학문 분야별 분포</strong>를 정밀 분석하고, 현재 통계가 입증하는 <strong>'실증적 사실(Fact)'</strong>과 추가 조사가 필요한 <strong>'가설(Hypothesis)'</strong>을 엄격히 구분하여 미래 정책 방향을 제언합니다.
+            </p>
+            <div style="background: rgba(255,255,255,0.04); padding: 1rem; border-radius: 8px;">
+              <span style="color: var(--accent-amber); font-weight: 700;">분석 원칙:</span> 자료에 없는 해외 영향력, 품질을 임의로 단정하지 않고 국내 학계의 실증적 연구 과제로 전환합니다.
+            </div>
+          </div>
+          <div class="info-card" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <h4 style="margin-bottom: 0.8rem;">본 발표가 답하는 6대 질문</h4>
+            <ul style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.95rem;">
+              <li><strong>Q1.</strong> 국내 학술지의 발행 구조와 등재 체계는 어떤 특징을 갖는가?</li>
+              <li><strong>Q2.</strong> 인문사회분야와 과학기술분야의 점유율 차이는 왜 발생하는가?</li>
+              <li><strong>Q3.</strong> 현재 통계로 파악할 수 있는 국내 학술 생태계의 실증적 강점은?</li>
+              <li><strong>Q4.</strong> 강화 가능성이 있는 분야와 세심한 관심이 필요한 영역은 어디인가?</li>
+              <li><strong>Q5.</strong> 분야별 불균형 원인을 규명하기 위해 어떤 추가 연구가 필요한가?</li>
+              <li><strong>Q6.</strong> 지속 가능한 학술 생태계 구축을 위한 정책적 로드맵은 무엇인가?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 03: 데이터 출처와 분석 방법 -->
+    <section class="slide" id="slide-3"
+      data-notes="[발표자 노트] 데이터는 2026년 10월 23일 KCI 통계 포털에서 공식 크롤링된 75개 세부 통계 레코드입니다. UTF-8 BOM 인코딩 검증 및 수학적 합산 검증을 거쳤으며, 모든 수치는 교차 검증을 통과했습니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">1부. 분석 배경</span>
+            <span class="slide-indicator-tag">Slide 03 / 20</span>
+          </div>
+          <h2 class="slide-title">데이터 출처와 분석 방법론</h2>
+          <p class="slide-subtitle">한국연구재단 KCI 통계 기반 원자료 검증 및 신뢰도 확보 절차</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="stat-card">
+            <div class="stat-label">데이터 원천 및 추출 방식</div>
+            <div style="font-size: 1.3rem; font-weight: 700; color: #fff; margin: 0.8rem 0;">KCI 기관·학술지 통계</div>
+            <p class="stat-desc">
+              한국학술지인용색인 공개 포털의 최신 공식 통계<br>
+              Firecrawl 정밀 크롤링을 통한 원본 무결성 확보<br>
+              출처: kci.go.kr (2026.10.23 기준)
+            </p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">정량 데이터 검증 내역</div>
+            <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-cyan); margin: 0.8rem 0;">75개 세부 레코드 전수 검증</div>
+            <p class="stat-desc">
+              결측치 및 숫자 변환 오류: 0건 (결측율 0%)<br>
+              발행기관 및 학술지 종수 합산식 일치 확인<br>
+              등재 등급별·분야별 교차 합계 100% 일치
+            </p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">분석 범위 및 한계 규정</div>
+            <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-amber); margin: 0.8rem 0;">단면적(Cross-sectional) 현황</div>
+            <p class="stat-desc">
+              현재 통계는 특정 시점의 분포 현황을 보여줌<br>
+              시계열 추세, 인용 영향력, 연구비 등 미포함<br>
+              인과관계 분석은 후속 연구 과제로 체계화
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 04: 국내 학술지 현황 한눈에 보기 -->
+    <section class="slide" id="slide-4"
+      data-notes="[발표자 노트] 국내 학술 생태계의 4대 핵심 지표입니다. 전체 학술지는 6,359종이며, 이 중 한국연구재단 등재(후보) 학술지는 2,932종으로 약 46.1%의 등재율을 나타냅니다. 전체 학술단체는 11,168개, 등재학술지 발행기관은 2,729개입니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">1부. 분석 배경</span>
+            <span class="slide-indicator-tag">Slide 04 / 20</span>
+          </div>
+          <h2 class="slide-title">국내 학술지 현황 대시보드</h2>
+          <p class="slide-subtitle">2026년 10월 23일 기준 국내 학술 생태계의 4대 핵심 정량 지표</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-4col">
+          <div class="stat-card">
+            <div class="stat-label">전체 학술지 종수</div>
+            <div class="stat-number accent-blue count-up" data-target="6359">6,359</div>
+            <div class="stat-desc">학회, 대학부설연구소, 일반기관이 발간하는 총 등록 학술지 수</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">등재(후보) 학술지 종수</div>
+            <div class="stat-number accent-cyan count-up" data-target="2932">2,932</div>
+            <div class="stat-desc">한국연구재단의 엄격한 질적 심사를 통과한 정규 등재 및 후보 학술지</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">전체 학술지 등재 비율</div>
+            <div class="stat-number accent-emerald count-up" data-target="46.1" data-percent="true">46.1%</div>
+            <div class="stat-desc">전체 6,359종 중 절반에 가까운 학술지가 등재 체계에 진입해 있음</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">등재지 발간 기관 수</div>
+            <div class="stat-number accent-amber count-up" data-target="2729">2,729</div>
+            <div class="stat-desc">전체 11,168개 학술단체 중 실질적으로 등재지를 발간 중인 기관 수</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 05: 전체 학술지 발행 구조 -->
+    <section class="slide" id="slide-5"
+      data-notes="[발표자 노트] 전체 학술지 6,359종의 발행 주체 분포입니다. 학회가 3,466종(54.5%)으로 과반을 차지하며, 대학부설연구소가 2,664종(41.9%), 일반기관이 229종(3.6%)입니다. 학회와 대학연구소가 국내 학술 출판의 양대 축을 형성하고 있습니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">1부. 분석 배경</span>
+            <span class="slide-indicator-tag">Slide 05 / 20</span>
+          </div>
+          <h2 class="slide-title">전체 학술지 발행 주체별 구조</h2>
+          <p class="slide-subtitle">학회와 대학부설연구소가 양분하는 국내 학술 출판 지형</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="chart-container">
+            <canvas id="chart-publishers" class="kci-chart"></canvas>
+          </div>
+          <div class="info-card accent-border">
+            <h4 style="margin-bottom: 1rem;">발행 주체별 구성비 및 구조적 특징</h4>
+            <div class="bar-group">
+              <div class="bar-header">
+                <span class="bar-label">학회 발행 학술지 (54.5%)</span>
+                <span class="bar-value">3,466종</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill" data-width="54.5%"></div></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-header">
+                <span class="bar-label">대학부설연구소 발행 학술지 (41.9%)</span>
+                <span class="bar-value">2,664종</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill" data-width="41.9%"></div></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-header">
+                <span class="bar-label">기타(일반)기관 발행 학술지 (3.6%)</span>
+                <span class="bar-value">229종</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill" data-width="3.6%"></div></div>
+            </div>
+            <p style="margin-top: 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              <strong>구조적 시사점:</strong> 학회 중심의 자생적 커뮤니티와 대학 내 연구소라는 제도적 기관이 학술지 생산 기반의 96.4%를 뒷받침하고 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         2부. 등재 체계와 분야별 분포 분석 (Slide 06 ~ 10)
+         ==================================================================== -->
+
+    <!-- Slide 06: 등재(후보) 학술지의 규모와 비중 -->
+    <section class="slide" id="slide-6"
+      data-notes="[발표자 노트] 전체 학술지 6,359종 중 등재(후보) 학술지는 2,932종으로 46.1%입니다. 이는 국내 학술지의 약 절반이 엄격한 동료평가와 정기 심사를 거쳐 국가 공인 학술지로 인정받고 있음을 의미합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">2부. 등재 체계 및 분포</span>
+            <span class="slide-indicator-tag">Slide 06 / 20</span>
+          </div>
+          <h2 class="slide-title">등재(후보) 학술지의 규모와 비중</h2>
+          <p class="slide-subtitle">전체 학술지 6,359종 대비 등재(후보) 2,932종의 질적 관리 체계</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="stat-card" style="justify-content: center; text-align: center; padding: 3rem 2rem;">
+            <div class="stat-label" style="justify-content: center; font-size: 1.1rem;">KCI 등재(후보) 공인 비율</div>
+            <div class="stat-number accent-emerald count-up" data-target="46.1" data-percent="true" style="font-size: 4.8rem; margin: 1rem 0;">46.1%</div>
+            <p style="font-size: 1.1rem; color: var(--text-muted);">
+              전체 6,359종 중 <strong>2,932종</strong>이 한국연구재단 등재 체계 공인
+            </p>
+          </div>
+          <div class="info-card accent-border">
+            <h4>등재 비중의 의미와 해석상 주의점</h4>
+            <ul style="gap: 1rem; display: flex; flex-direction: column; margin-top: 1rem;">
+              <li><strong>높은 진입 장벽과 신뢰도:</strong> 46.1%라는 비율은 무분별한 학술지 난립을 방지하고 연구 윤리와 심사 체계를 국가 단위에서 일정 수준 이상 담보하고 있음을 보여줍니다.</li>
+              <li><strong>비등재 학술지(53.9%)의 성격:</strong> 나머지 3,427종은 심사 탈락지뿐만 아니라 신생 학술지, 대학 내부 연구보고서, 지역 특화 간행물 등 다양한 층위가 혼재되어 있으므로 단순 부실로 단정할 수 없습니다.</li>
+              <li><strong>질적 성장의 과제:</strong> 양적 진입 단계를 넘어, 등재 이후 학술지의 실질적 학문적 영향력과 발행 지속성을 관리하는 2단계 질적 지표 도입이 필요합니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 07: 등재 상태별 구성 -->
+    <section class="slide" id="slide-7"
+      data-notes="[발표자 노트] 등재(후보) 학술지 2,932종의 등급 구성입니다. 정규 '등재' 학술지가 2,691종으로 91.8%의 절대다수이며, 진입 단계인 '등재후보'는 174종(5.9%), 최상위 '우수등재'는 67종(2.3%)입니다. 전형적인 항아리-피라미드 구조입니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">2부. 등재 체계 및 분포</span>
+            <span class="slide-indicator-tag">Slide 07 / 20</span>
+          </div>
+          <h2 class="slide-title">등재 상태별 세부 구성</h2>
+          <p class="slide-subtitle">우수등재(67종) · 등재(2,691종) · 등재후보(174종)의 등급 피라미드</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="chart-container">
+            <canvas id="chart-indexed-status" class="kci-chart"></canvas>
+          </div>
+          <div class="info-card">
+            <h4>등급별 비중과 제도적 함의</h4>
+            <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem;">
+              <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-amber); padding: 0.8rem;">
+                <div style="font-weight: 700; color: var(--accent-amber);">우수등재학술지: 67종 (2.3%)</div>
+                <div style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">KCI 인용 지수 및 엄격한 국제화·전문성 요건을 통과한 대한민국 대표 학술지</div>
+              </div>
+              <div style="background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-primary); padding: 0.8rem;">
+                <div style="font-weight: 700; color: var(--accent-primary);">정규 등재학술지: 2,691종 (91.8%)</div>
+                <div style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">국내 연구자들의 연구업적 평가 및 학술 소통의 중추적 뼈대를 구성하는 표준 학술지군</div>
+              </div>
+              <div style="background: rgba(6, 182, 212, 0.1); border-left: 4px solid var(--accent-cyan); padding: 0.8rem;">
+                <div style="font-weight: 700; color: var(--accent-cyan);">등재후보학술지: 174종 (5.9%)</div>
+                <div style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">신규 학술 분야 또는 성장 단계에서 정규 등재 진입을 준비하는 인큐베이팅 단계</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 08: 등재(후보) 학술지 발간기관 구조 -->
+    <section class="slide" id="slide-8"
+      data-notes="[발표자 노트] 등재(후보) 학술지를 실제로 발행하는 2,729개 기관의 구조입니다. 학회가 2,118개로 77.6%를 차지하며, 대학연구소는 498개(18.2%), 일반기관은 113개(4.1%)입니다. 특히 학회는 전체 4,437개 중 47.7%가 등재지를 발행하지만, 대학연구소는 6,534개 중 7.6%에 불과합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">2부. 등재 체계 및 분포</span>
+            <span class="slide-indicator-tag">Slide 08 / 20</span>
+          </div>
+          <h2 class="slide-title">등재(후보) 학술지 발간기관 구조</h2>
+          <p class="slide-subtitle">학회 네트워크(2,118개) 주도의 등재 학술 출판 생태계</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="chart-container">
+            <canvas id="chart-org-structure" class="kci-chart"></canvas>
+            <div style="text-align: center; font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem;">
+              * 밝은 영역: 등재학술지 발간기관 / 어두운 영역: 전체 기관 모수
+            </div>
+          </div>
+          <div class="info-card accent-border">
+            <h4>기관 수와 학술지 수의 교차 해석</h4>
+            <ul style="gap: 0.9rem; display: flex; flex-direction: column; margin-top: 0.8rem;">
+              <li><strong>학회의 압도적 질적 생산성:</strong> 등재학술지 발간기관의 77.6%(2,118개)가 학회로, 자율적 학술 공동체가 국내 공인 학술지의 실질적 보루임을 입증합니다.</li>
+              <li><strong>대학부설연구소의 양적 팽창 대비 낮은 등재율:</strong> 전국 6,534개 대학부설연구소 중 등재지를 발간하는 곳은 498개(7.6%)에 그칩니다.</li>
+              <li><strong>학술지 수와 기관 수의 구분 필요:</strong> 학술지 수(2,932종)와 기관 수(2,729개)가 유사하지만, 일부 유력 학회는 2종 이상의 학술지를 복수 발행하고 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 09: 인문사회분야와 과학기술분야 비교 -->
+    <section class="slide" id="slide-9"
+      data-notes="[발표자 노트] 분야별 분포에서 매우 극적인 차이가 나타납니다. 등재(후보)지 2,932종 중 인문사회분야가 2,077종으로 약 70.8%를 차지하고, 과학기술분야는 855종으로 29.2%에 불과합니다. 인문사회분야의 학술지 수가 과학기술의 2.4배에 달합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">2부. 등재 체계 및 분포</span>
+            <span class="slide-indicator-tag">Slide 09 / 20</span>
+          </div>
+          <h2 class="slide-title">인문사회분야 vs 과학기술분야 비교</h2>
+          <p class="slide-subtitle">인문사회분야 2,077종(70.8%) vs 과학기술분야 855종(29.2%)의 극명한 점유율 격차</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="chart-container">
+            <canvas id="chart-field-comparison" class="kci-chart"></canvas>
+          </div>
+          <div class="info-card success-border">
+            <h4>학문 분야별 분포 특징 및 해석 범위</h4>
+            <div style="margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.8rem;">
+              <p>
+                <strong>인문사회분야 (2,077종, 70.8%):</strong><br>
+                사회과학(1,061종), 인문학(670종), 예술체육(174종), 복합학(172종) 등 세부 학문별로 매우 두텁고 다양한 국내 학술지 생태계가 형성되어 있습니다.
+              </p>
+              <p>
+                <strong>과학기술분야 (855종, 29.2%):</strong><br>
+                의약학(373종), 공학(263종), 자연과학(129종), 농수해양(90종) 순으로 분포하며, 인문사회 대비 약 41% 수준의 규모에 머물고 있습니다.
+              </p>
+              <div style="background: rgba(255,255,255,0.04); padding: 0.7rem; border-radius: 6px; font-size: 0.85rem; color: var(--accent-cyan);">
+                <strong>주의:</strong> 이 격차는 연구 역량의 차이가 아니라, 글로벌 학술지(SCI 등) 투고 성향과 국내 연구 성과 유통 플랫폼의 차이에서 기인할 가능성이 높습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 10: 주요 통계 결과 종합 -->
+    <section class="slide" id="slide-10"
+      data-notes="[발표자 노트] 전반부 통계 결과를 종합합니다. 6,359종 학술지, 46.1% 등재율, 학회 중심 77.6%, 인문사회 70.8% 점유가 명확한 실증 사실입니다. 이제 3부에서는 이 현황이 의미하는 학술 생태계의 강점과 보완점을 진단하겠습니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">2부. 등재 체계 및 분포</span>
+            <span class="slide-indicator-tag">Slide 10 / 20</span>
+          </div>
+          <h2 class="slide-title">주요 통계 결과 종합</h2>
+          <p class="slide-subtitle">확인된 실증적 사실(Fact)과 향후 진단할 핵심 의제</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="stat-card">
+            <div class="stat-label">규모 및 등재 구조</div>
+            <div style="font-size: 1.4rem; font-weight: 700; color: #fff; margin: 0.6rem 0;">46.1% 등재율</div>
+            <p class="stat-desc">
+              전체 6,359종 중 2,932종이 등재 체계 편입<br>
+              등재지가 91.8%로 안정화되었으나, 우수등재(67종, 2.3%) 최상위 차별화는 제한적
+            </p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">발행 네트워크</div>
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-cyan); margin: 0.6rem 0;">학회 주도권 77.6%</div>
+            <p class="stat-desc">
+              학회가 등재학술지 발간기관의 77.6% 차지<br>
+              반면 대학연구소는 6,534개 중 7.6%만 등재지를 발행하여 기관 유형별 양극화 관찰
+            </p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">학문 분야 비중</div>
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-emerald); margin: 0.6rem 0;">인문사회 70.8% 점유</div>
+            <p class="stat-desc">
+              인문사회(2,077종) 대 과학기술(855종)의 7:3 구조<br>
+              KCI가 국내 인문사회 지식의 핵심 허브임을 입증함과 동시에 분야별 유통 분리 시사
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3부. 국내 학술 생태계의 강점과 보완점 (Slide 11 ~ 15)
+         ==================================================================== -->
+
+    <!-- Slide 11: 국내 학술 생태계에서 관찰되는 강점 -->
+    <section class="slide" id="slide-11"
+      data-notes="[발표자 노트] 현재 데이터가 입증하는 국내 학술 생태계의 3대 강점입니다. 첫째, 6천 종이 넘는 폭넓은 학술지 기반. 둘째, 학회 중심의 자율적 동료평가 정착. 셋째, 한국 고유의 인문사회 지식을 축적하는 안정적인 지식 저장소 역할입니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">3부. 강점과 보완점 진단</span>
+            <span class="slide-indicator-tag">Slide 11 / 20</span>
+          </div>
+          <h2 class="slide-title">국내 학술 생태계에서 관찰되는 강점</h2>
+          <p class="slide-subtitle">KCI 통계 데이터가 직접 뒷받침하는 3대 구조적 자산</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="info-card success-border" style="height: 100%;">
+            <h4>1. 탄탄한 학술 공론장 인프라</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              전체 6,359종 학술지와 11,168개 학술단체가 활동하여, 전공별·지역별 연구자들이 연구 성과를 공식 발표하고 토론할 수 있는 기초 인프라가 전국적으로 촘촘히 구축되어 있습니다.
+            </p>
+          </div>
+          <div class="info-card success-border" style="height: 100%;">
+            <h4>2. 학회 중심 자율 심사 체계</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              학회 발행 학술지의 등재율이 65.6%에 달하며, 2,118개 학회가 등재지를 책임 운영함으로써 동료평가(Peer-review) 기반의 자율 규제와 질 관리가 안정적으로 작동하고 있습니다.
+            </p>
+          </div>
+          <div class="info-card success-border" style="height: 100%;">
+            <h4>3. 토착 지식의 국가적 보고</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              2,077종에 달하는 인문사회 등재지는 한국의 역사, 사회, 법률, 문화 등 로컬 맥락의 독창적 연구 성과가 모국어로 축적·계승되는 대체 불가능한 지식 아카이브 역할을 수행합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 12: 강화 가능성이 있는 분야 -->
+    <section class="slide" id="slide-12"
+      data-notes="[발표자 노트] 추가 지표를 통해 강화할 수 있는 유망 분야입니다. 특히 67종의 '우수등재학술지'는 Scopus 및 DOAJ 등 글로벌 색인 연계를 집중 지원하여 세계적 학술 브랜드로 도약시킬 잠재력이 있으며, 172종의 복합학 학술지는 다학제 융합 연구의 거점이 될 수 있습니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">3부. 강점과 보완점 진단</span>
+            <span class="slide-indicator-tag">Slide 12 / 20</span>
+          </div>
+          <h2 class="slide-title">강화 가능성이 있는 분야</h2>
+          <p class="slide-subtitle">질적 도약 및 글로벌 가시성 확장이 기대되는 전략적 영역</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card accent-border">
+            <h4 style="color: var(--accent-secondary);">우수등재학술지 (67종)의 글로벌 브랜드화</h4>
+            <ul style="gap: 0.8rem; display: flex; flex-direction: column; margin-top: 0.8rem;">
+              <li><strong>질적 최상위 2.3%의 집약:</strong> 인문사회 39종, 과학기술 28종으로 구성된 우수등재학술지는 이미 국내 최고 수준의 심사 역량과 인용 영향력을 입증했습니다.</li>
+              <li><strong>글로벌 오픈액세스 연계:</strong> 영문 메타데이터 고도화, DOAJ 및 Scopus 등재 컨설팅, 글로벌 DOI 유통 지원을 집중하여 'K-Academic' 브랜드로 육성 가능합니다.</li>
+            </ul>
+          </div>
+          <div class="info-card accent-border">
+            <h4 style="color: var(--accent-secondary);">복합학 및 융합 연구 학술지 (172종) 육성</h4>
+            <ul style="gap: 0.8rem; display: flex; flex-direction: column; margin-top: 0.8rem;">
+              <li><strong>학제간 융합 수요 흡수:</strong> 인문학과 AI, 환경과 사회학 등 전통적 분과 학문을 넘어서는 172종의 복합학 학술지가 성장 중입니다.</li>
+              <li><strong>다학제 심사 시스템 지원:</strong> 서로 다른 전공의 심사위원이 참여하는 융합 심사 프로토콜을 보급하고 다학제 연구비와 연계해 질적 성장을 견인할 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13: 추가 관심이 필요한 분야 -->
+    <section class="slide" id="slide-13"
+      data-notes="[발표자 노트] 단순 수치가 적다고 해서 취약 분야가 아닙니다. 농수해양(90종), 예술체육(174종) 등은 연구자 모수가 작지만 국가 필수 기간 학문입니다. 또한 국내 과학기술 학술지(855종)는 해외 저널과의 차별화된 고유 정체성 수립이 필요합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">3부. 강점과 보완점 진단</span>
+            <span class="slide-indicator-tag">Slide 13 / 20</span>
+          </div>
+          <h2 class="slide-title">추가 관심이 필요한 분야</h2>
+          <p class="slide-subtitle">학문적 중요성과 특수성을 고려한 맞춤형 지원 정책 대상</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card warning-border">
+            <h4 style="color: var(--accent-amber);">소수 학문 분야의 특수성 보호 (농수해양 90종, 예술체육 174종)</h4>
+            <ul style="gap: 0.8rem; display: flex; flex-direction: column; margin-top: 0.8rem;">
+              <li><strong>단순 수치로 우열을 단정하지 않음:</strong> 학술지 종수가 적은 것은 연구자 인구 모수가 작기 때문이며 학문적 가치가 낮은 것이 아닙니다.</li>
+              <li><strong>획일적 잣대 탈피:</strong> 피인용지수(Impact Factor) 중심의 획일적 등재 평가에서 벗어나, 국가 전략 분야 및 기초 예술 분야를 위한 맞춤형 평가 기준이 필요합니다.</li>
+            </ul>
+          </div>
+          <div class="info-card warning-border">
+            <h4 style="color: var(--accent-amber);">국내 과학기술 학술지 (855종)의 정체성 재정립</h4>
+            <ul style="gap: 0.8rem; display: flex; flex-direction: column; margin-top: 0.8rem;">
+              <li><strong>SCI 편중과의 역할 분담:</strong> 과기 연구 성과의 대다수가 해외 저널로 유출되는 환경에서, 국내 과기 학술지의 고유 역할 설정이 시급합니다.</li>
+              <li><strong>기술 실용화 및 신진연구자 인큐베이팅:</strong> 국내 산업 연계 기술, 국문 전문 기술용어 보존, 석·박사 신진 연구자의 기초 논문 발표장으로서의 지원이 요구됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 14: 보완이 필요한 구조적 영역 -->
+    <section class="slide" id="slide-14"
+      data-notes="[발표자 노트] 보완이 필요한 구조적 문제입니다. 대학부설연구소의 등재율이 19.97%로 매우 낮다는 점은 연구소 단위 학술지 발행의 지속성과 인력 부족을 시사합니다. 또한 비영리 학회의 열악한 재정, 상임 편집위원 부족 등 심사 인프라 보완이 필요합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">3부. 강점과 보완점 진단</span>
+            <span class="slide-indicator-tag">Slide 14 / 20</span>
+          </div>
+          <h2 class="slide-title">보완이 필요한 구조적 영역</h2>
+          <p class="slide-subtitle">대학연구소 등재율 격차와 학술 출판 인프라의 지속 가능성 문제</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card warning-border">
+            <h4>대학부설연구소 학술지의 낮은 등재율 (19.97%)</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              대학연구소 발행 학술지 2,664종 중 등재지는 532종에 불과합니다. 연구소장의 교체, 전담 행정·편집 인력 부재, 연구비 종료에 따른 발행 중단 위험 등 구조적 취약성이 의심되므로 유사 연구소 간 공동 학술지 발간 유도 정책이 검토되어야 합니다.
+            </p>
+          </div>
+          <div class="info-card warning-border">
+            <h4>학술지 편집·심사 인프라의 영세성</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              국내 등재지의 대다수는 비영리 학회가 소속 교수들의 자발적 봉사에 의존해 운영됩니다. 전문 편집인(Managing Editor) 부족, 연구윤리 검증 시스템(표절검사) 비용 부담, 영문 교열 지원 부족 등 학술지 운영 인프라의 체계적 공공 지원이 절실합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 15: 분야별 분포 차이는 왜 발생하는가? -->
+    <section class="slide" id="slide-15"
+      data-notes="[발표자 노트] 인문사회 70.8% 대 과학기술 29.2% 격차의 원인을 설명하는 4대 가설입니다. 연구자 모수, 업적 평가 제도의 SCI 선호, 학문적 연구 대상의 로컬/글로벌 성향 차이, 단행본/논문 발행 관행 차이 등이 거론됩니다. 이는 확정된 원인이 아니며 검증되어야 할 연구 가설입니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">3부. 강점과 보완점 진단</span>
+            <span class="slide-indicator-tag">Slide 15 / 20</span>
+          </div>
+          <h2 class="slide-title">분야별 분포 차이는 왜 발생하는가?</h2>
+          <p class="slide-subtitle">통계가 설명하지 못하는 불균형 원인을 규명하기 위한 4대 가설</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-4col">
+          <div class="info-card">
+            <h4 style="font-size: 1rem; color: var(--accent-secondary);">가설 1. 업적 평가 제도</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem; line-height: 1.5;">
+              이공계 대학 교수 채용 및 연구비 평가에서 SCI(E)급 논문 중심의 인센티브 구조가 국내 KCI 학술지 투고 유인을 낮췄을 가능성
+            </p>
+          </div>
+          <div class="info-card">
+            <h4 style="font-size: 1rem; color: var(--accent-secondary);">가설 2. 연구 대상의 특수성</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem; line-height: 1.5;">
+              인문사회는 한국어 자료, 국내 사회제도 등 로컬 맥락 연구가 많아 국내 저널 중심이며, 과기는 보편적 자연법칙으로 국제 유통 성향
+            </p>
+          </div>
+          <div class="info-card">
+            <h4 style="font-size: 1rem; color: var(--accent-secondary);">가설 3. 연구자 규모 및 학회</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem; line-height: 1.5;">
+              인문사회 전공의 세분화와 다양한 소규모 분과 학회 설립 전통이 독립 학술지 수의 다변화로 이어졌을 가능성
+            </p>
+          </div>
+          <div class="info-card">
+            <h4 style="font-size: 1rem; color: var(--accent-secondary);">가설 4. 학술 출판 생태계</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem; line-height: 1.5;">
+              글로벌 상업 출판사(Elsevier 등)에 편입된 과기 분야와 달리, 국내 인문사회는 학회 중심 자체 발간 모델 유지
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4부. 추가 연구와 국내 학계의 발전 방향 (Slide 16 ~ 20)
+         ==================================================================== -->
+
+    <!-- Slide 16: 원인 규명을 위한 추가 연구 과제 -->
+    <section class="slide" id="slide-16"
+      data-notes="[발표자 노트] 앞서 세운 가설들을 실증하기 위해 국내 학계가 추진해야 할 6대 연구 과제입니다. 연구비·연구자 인구 모수 연계, 등재 유지율 및 폐간율 시계열 분석, 투고 수요 및 심사 소요 기간 조사 등이 후속 연구로 진행되어야 합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">4부. 미래 과제 및 발전 방향</span>
+            <span class="slide-indicator-tag">Slide 16 / 20</span>
+          </div>
+          <h2 class="slide-title">원인 규명을 위한 6대 추가 연구 과제</h2>
+          <p class="slide-subtitle">현황 통계를 넘어 학술 생태계 역동성을 밝히기 위한 후속 연구 아젠다</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card" style="height: 100%;">
+            <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+              <li><strong>과제 1. 연구자 인구 및 R&D 예산 연계:</strong> 학문 분야별 교수·연구원 수 및 지원 연구비 규모와 학술지 수 간의 상관관계 분석</li>
+              <li><strong>과제 2. 등재 유지 및 수명 주기(Life-cycle) 추적:</strong> 학술지의 창간, 등재 진입, 탈락, 휴·폐간율에 대한 10개년 종단 분석</li>
+              <li><strong>과제 3. 발행 주체별 재정 및 인력 실태 조사:</strong> 학회와 대학연구소의 편집위원 보수, 사무국 전담인력 유무 등 운영 실태 조사</li>
+            </ul>
+          </div>
+          <div class="info-card" style="height: 100%;">
+            <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+              <li><strong>과제 4. 투고 수요 및 심사 소요 기간 분석:</strong> 분야별 연간 논문 접수 편수, 채택률(Acceptance Rate), 심사 리드타임 비교</li>
+              <li><strong>과제 5. 국내 vs 국제 유통 성향 교차 분석:</strong> 국내 저자들의 KCI 논문과 Web of Science/Scopus 논문 발행 비율 교차 검증</li>
+              <li><strong>과제 6. 평가 제도 변화의 정책적 영향 분석:</strong> 대학 평가 및 연구재단 지원 제도 변경이 학술지 신설 및 운영에 미친 인과효과 분석</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 17: 학술지 평가와 지원 체계의 보완 방향 -->
+    <section class="slide" id="slide-17"
+      data-notes="[발표자 노트] 한국연구재단과 교육부의 학술지 평가·지원 체계 개편 방향입니다. 단순한 학술지 종수 중심의 양적 평가에서 탈피하여, 심사 투명성, 편집 역량, 오픈액세스 공개율 등 실질적 지속 가능성과 질적 가치를 반영하는 다차원 평가지표 도입을 제안합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">4부. 미래 과제 및 발전 방향</span>
+            <span class="slide-indicator-tag">Slide 17 / 20</span>
+          </div>
+          <h2 class="slide-title">학술지 평가 및 지원 체계 보완 방향</h2>
+          <p class="slide-subtitle">양적 지표 중심 관리에서 질적 지속 가능성 중심의 지원형 체계로 전환</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="info-card accent-border" style="height: 100%;">
+            <h4>1. 분야별 특화 평가지표 설계</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              이공계와 인문사회계의 연구 주기와 피인용 관행 차이를 고려하여, 동일한 인용지수 잣대를 강요하지 않고 학문 분야별 특화된 동료평가 기준을 마련해야 합니다.
+            </p>
+          </div>
+          <div class="info-card accent-border" style="height: 100%;">
+            <h4>2. 심사 투명성 및 편집 역량 평가</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              단순 발행 횟수 채우기를 넘어, 심사의 전문성, 심사위원 피드백의 충실도, 연구윤리 검증 시스템 구비 여부를 핵심 평가지표로 강화해야 합니다.
+            </p>
+          </div>
+          <div class="info-card accent-border" style="height: 100%;">
+            <h4>3. 공공 지원 방식의 인프라화</h4>
+            <p style="margin-top: 0.8rem; line-height: 1.6;">
+              개별 학회에 소액 분배하는 직접 보조금 방식을 탈피하여, 통합 투고·심사 플랫폼, DOI 부여, 공공 오픈액세스 서버 무료 제공 등 공용 인프라 지원으로 전환해야 합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 18: 국내 학계의 발전 방향 제언 -->
+    <section class="slide" id="slide-18"
+      data-notes="[발표자 노트] 국내 학계 구성원 모두가 함께 나아가야 할 4대 발전 방향입니다. 연구자, 학회, 대학, 정부 지원기관이 각자의 위치에서 오픈사이언스를 지향하고 데이터 기반 의사결정을 실천해야 합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">4부. 미래 과제 및 발전 방향</span>
+            <span class="slide-indicator-tag">Slide 18 / 20</span>
+          </div>
+          <h2 class="slide-title">국내 학계의 발전 방향 제언</h2>
+          <p class="slide-subtitle">학술 공동체와 연구 지원 기관을 위한 4대 전략적 제언</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card success-border">
+            <h4 style="color: var(--accent-emerald);">전략 1. 국가 오픈액세스(Open Access) 생태계 구축</h4>
+            <p style="margin-top: 0.5rem; line-height: 1.6;">
+              세금으로 지원된 국내 학술 연구 성과가 국민과 산업계에 무료로 개방될 수 있도록, KCI 기반 공공 오픈액세스 리포지터리를 확충하고 저작권 양도 관행을 개선합니다.
+            </p>
+          </div>
+          <div class="info-card success-border">
+            <h4 style="color: var(--accent-emerald);">전략 2. 대학연구소 학술지의 통폐합 및 연합화</h4>
+            <p style="margin-top: 0.5rem; line-height: 1.6;">
+              영세한 대학부설연구소 학술지(등재율 20%)의 한계를 극복하기 위해, 권역별·주제별 연구소 연합 학술지 발간을 유도하여 발행 지속성과 국제성을 확보합니다.
+            </p>
+          </div>
+          <div class="info-card success-border">
+            <h4 style="color: var(--accent-emerald);">전략 3. K-Academic 지식의 글로벌 네트워크 연계</h4>
+            <p style="margin-top: 0.5rem; line-height: 1.6;">
+              한국학 및 인문사회 연구 성과가 글로벌 학계에서 정당하게 인용될 수 있도록 영문 초록 표준화 및 해외 주요 대학 도서관과의 데이터 연동을 강화합니다.
+            </p>
+          </div>
+          <div class="info-card success-border">
+            <h4 style="color: var(--accent-emerald);">전략 4. 데이터 기반 학술 정책 수립</h4>
+            <p style="margin-top: 0.5rem; line-height: 1.6;">
+              직관이나 관례에 의한 지원이 아니라, 학술지 메타데이터 분석과 인용 네트워크 분석을 바탕으로 한 증거 기반(Evidence-based) 학술 정책을 정착시킵니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 19: 향후 연구 로드맵 -->
+    <section class="slide" id="slide-19"
+      data-notes="[발표자 노트] KCI 통계에서 출발하여 학술 정책 수립에 이르는 6단계 미래 연구 로드맵입니다. 지표 확인부터 시계열 확보, 외부 데이터 연계, 원인 규명을 거쳐 최종적으로 균형 잡힌 학술 생태계 지표를 확립하게 됩니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">4부. 미래 과제 및 발전 방향</span>
+            <span class="slide-indicator-tag">Slide 19 / 20</span>
+          </div>
+          <h2 class="slide-title">향후 연구 및 정책 로드맵</h2>
+          <p class="slide-subtitle">단면적 통계에서 증거 기반 학술 정책으로 이어지는 6단계 로드맵</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="roadmap-flow">
+          <div class="roadmap-step">
+            <div class="step-num">01</div>
+            <div class="step-title">지표 기준 확립</div>
+            <div class="step-desc">KCI 분류 기준 및 원시 데이터 속성 정밀 검증 (완료)</div>
+          </div>
+          <div class="roadmap-step">
+            <div class="step-num">02</div>
+            <div class="step-title">시계열 데이터 구축</div>
+            <div class="step-desc">최근 10년간 등재 변동 및 폐간 추이 종단 DB 구축</div>
+          </div>
+          <div class="roadmap-step">
+            <div class="step-num">03</div>
+            <div class="step-title">학문 세부 비교</div>
+            <div class="step-desc">인문·사회·이공계 등 세부 분과별 투고 및 인용 심층 비교</div>
+          </div>
+          <div class="roadmap-step">
+            <div class="step-num">04</div>
+            <div class="step-title">외부 데이터 연계</div>
+            <div class="step-desc">연구자 수, 국가 R&D 연구비, 국제색인(SCI/Scopus) 결합</div>
+          </div>
+          <div class="roadmap-step">
+            <div class="step-num">05</div>
+            <div class="step-title">원인 인과 분석</div>
+            <div class="step-desc">분야별 불균형 및 대학연구소 취약성의 구조적 원인 규명</div>
+          </div>
+          <div class="roadmap-step">
+            <div class="step-num">06</div>
+            <div class="step-title">정책 지표 완성</div>
+            <div class="step-desc">지속 가능한 학술지 지원 체계 및 다차원 평가지표 확립</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 20: 결론과 출처 -->
+    <section class="slide" id="slide-20"
+      data-notes="[발표자 노트] 결론입니다. 본 조사는 6,359종 학술지와 2,932종 등재지의 정량적 분포를 명확히 밝혔습니다. 인문사회의 탄탄한 지식 보고와 학회 중심의 자율성이라는 강점을 바탕으로, 대학연구소 내실화와 오픈액세스 확대를 추진해야 합니다. 경청해 주셔서 감사합니다.">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag-group">
+            <span class="slide-category">4부. 미래 과제 및 발전 방향</span>
+            <span class="slide-indicator-tag">Slide 20 / 20</span>
+          </div>
+          <h2 class="slide-title">결론 및 참고 자료</h2>
+          <p class="slide-subtitle">핵심 발견 요약과 지속 가능한 학술 생태계를 위한 제언</p>
+        </div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="info-card success-border">
+            <h4>핵심 발견 및 결론 요약</h4>
+            <ul style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.6rem; font-size: 0.9rem;">
+              <li><strong>확인된 현황:</strong> 전체 6,359종 중 46.1%(2,932종) 등재, 학회 발행 77.6% 중심 구조</li>
+              <li><strong>분야별 분포:</strong> 인문사회 70.8%(2,077종) 대 과학기술 29.2%(855종)의 뚜렷한 유통 분리</li>
+              <li><strong>미래 과제:</strong> 단순 양적 종수 관리를 넘어 오픈액세스 및 연구소 학술지 내실화 필요</li>
+              <li><strong>정책 방향:</strong> 증거 기반 데이터와 시계열 분석을 통한 맞춤형 지원 체계 수립</li>
+            </ul>
+          </div>
+          <div class="info-card" style="font-size: 0.88rem;">
+            <h4>데이터 출처 및 라이선스 고지</h4>
+            <p style="margin-top: 0.6rem; line-height: 1.6; color: var(--text-muted);">
+              <strong>출처:</strong> 한국연구재단(NRF) 한국학술지인용색인(KCI)<br>
+              <strong>URL:</strong> <a href="https://www.kci.go.kr/kciportal/po/statistics/poStatisticsMain.kci" target="_blank" style="color: var(--accent-secondary); word-break: break-all;">https://www.kci.go.kr/kciportal/po/statistics/poStatisticsMain.kci</a><br>
+              <strong>기준일:</strong> 2026년 10월 23일 기준 공개 통계<br>
+              <strong>주의사항:</strong> 본 발표의 모든 수치는 공식 통계 기반 검증값이며, 가설 및 정책 제언은 학계의 추가 연구와 검증을 전제로 합니다.
+            </p>
+            <div style="margin-top: 1.2rem; text-align: center; color: var(--accent-cyan); font-weight: 700;">
+              경청해 주셔서 감사합니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Global Slide Footer UI -->
+  <footer class="slide-footer">
+    <div class="footer-left">
+      <span class="footer-source">출처: 한국연구재단 KCI 통계 (2026.10.23 기준)</span>
+      <span style="color: var(--text-dim);">|</span>
+      <span>국내 학술지 동향 분석</span>
+    </div>
+
+    <div class="footer-right">
+      <button class="nav-btn" id="notes-toggle-btn" title="발표자 노트 토글 (단축키 N)">
+        <span>노트</span> <span class="kb-hint">N</span>
+      </button>
+      <button class="nav-btn" id="fullscreen-btn" title="전체화면 토글 (단축키 F)">
+        <span>전체화면</span> <span class="kb-hint">F</span>
+      </button>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="page-number-display" id="page-number-display">01 / 20</div>
+      <button class="nav-btn" id="prev-btn" title="이전 슬라이드 (←, PageUp)">◀ 이전</button>
+      <button class="nav-btn" id="next-btn" title="다음 슬라이드 (→, PageDown, Space)">다음 ▶</button>
+    </div>
+  </footer>
+
+  <!-- Presenter Notes Drawer -->
+  <div class="notes-drawer" id="notes-drawer">
+    <div class="notes-header">
+      <div class="notes-title">발표자 노트 (Presenter Notes)</div>
+      <span style="font-size: 0.8rem; color: var(--text-dim);">(단축키 N으로 여닫기)</span>
+    </div>
+    <div class="notes-content" id="notes-content">
+      <em>슬라이드 노트를 불러오는 중...</em>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
