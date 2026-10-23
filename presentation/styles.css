@@ -1,6 +1,7 @@
 /* ==========================================================================
    국내 학술지 동향 분석 - 20페이지 HTML 프레젠테이션 스타일시트
    Theme: Editorial Data Journalism & Academic Presentation
+   Strict Image Aspect-Ratio Preservation System (16:9 Standard)
    ========================================================================== */
 
 :root {
@@ -64,7 +65,7 @@ html, body {
   background: radial-gradient(circle at 50% 20%, #0e1e38 0%, #050b14 85%);
 }
 
-/* 16:9 Slide Stage */
+/* 16:9 Slide Stage: Always maintains 16:9 aspect ratio */
 .slide-stage {
   position: relative;
   width: min(100vw, calc(100vh * var(--slide-ratio)));
@@ -108,21 +109,81 @@ html, body {
   transform: translateX(-40px);
 }
 
+/* ==========================================================================
+   IMAGE ASSET STYLES: Strict Aspect-Ratio & Distortion Prevention
+   ========================================================================== */
+
+/* Full Slide Background Image (16:9 Ambient) */
+.slide-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(circle at 75% 45%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: radial-gradient(circle at 75% 45%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+}
+
+/* 16:9 Image Frame Container (Never Stretches) */
+.slide-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: rgba(11, 21, 40, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-image-frame img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.slide-image-frame:hover img {
+  transform: scale(1.02);
+}
+
+/* Image Caption */
+.image-caption {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: right;
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+}
+
 /* Slide Header */
 .slide-header {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 1.2rem;
+  padding-bottom: 1rem;
 }
 
 .slide-tag-group {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .slide-category {
@@ -157,14 +218,10 @@ html, body {
   font-weight: 400;
 }
 
-.slide-meta-badge {
-  text-align: right;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-}
-
 /* Slide Body / Content Layouts */
 .slide-body {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -251,7 +308,7 @@ html, body {
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   padding: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .info-card.accent-border {
@@ -286,7 +343,7 @@ html, body {
   margin-top: 0.5rem;
 }
 
-/* Comparison Bar / Chart Container */
+/* Chart Container */
 .chart-container {
   position: relative;
   width: 100%;
@@ -305,14 +362,14 @@ canvas.kci-chart {
 
 /* Custom Visual Bars */
 .bar-group {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 
 .bar-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.92rem;
 }
 
 .bar-label {
@@ -328,16 +385,16 @@ canvas.kci-chart {
 
 .bar-track {
   width: 100%;
-  height: 14px;
+  height: 12px;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 7px;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
 }
 
 .bar-fill {
   height: 100%;
-  border-radius: 7px;
+  border-radius: 6px;
   background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
   transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -405,6 +462,8 @@ canvas.kci-chart {
   color: var(--accent-cyan);
   font-weight: 600;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .cover-title {
@@ -414,7 +473,9 @@ canvas.kci-chart {
   color: #ffffff;
   letter-spacing: -0.03em;
   margin-bottom: 1rem;
-  max-width: 900px;
+  max-width: 920px;
+  position: relative;
+  z-index: 2;
 }
 
 .cover-subtitle {
@@ -423,7 +484,9 @@ canvas.kci-chart {
   line-height: 1.5;
   font-weight: 400;
   max-width: 820px;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .cover-meta {
@@ -432,6 +495,8 @@ canvas.kci-chart {
   border-top: 1px solid var(--border-subtle);
   padding-top: 1.5rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .meta-item {
@@ -480,11 +545,6 @@ canvas.kci-chart {
 
 .footer-source {
   color: var(--text-dim);
-}
-
-.footer-source a {
-  color: var(--accent-secondary);
-  text-decoration: none;
 }
 
 .footer-right {
@@ -585,7 +645,6 @@ canvas.kci-chart {
   line-height: 1.6;
 }
 
-/* Keyboard Hints Modal/Badge */
 .kb-hint {
   font-family: var(--font-mono);
   background: rgba(255, 255, 255, 0.12);
@@ -595,23 +654,9 @@ canvas.kci-chart {
   color: var(--text-white);
 }
 
-/* Visual Background Overlay */
-.slide-bg-visual {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 45%;
-  height: 100%;
-  opacity: 0.18;
-  object-fit: cover;
-  pointer-events: none;
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
-}
-
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .slide, .bar-fill, .notes-drawer, .stat-card {
+  .slide, .bar-fill, .notes-drawer, .stat-card, .slide-image-frame img {
     transition: none !important;
     animation: none !important;
   }
