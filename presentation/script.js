@@ -1,5 +1,6 @@
 /**
  * 국내 학술지 동향 분석 - 20페이지 HTML 프레젠테이션 스크립트
+ * Powered by Anime.js & High-Resolution Vector Graphics
  * Self-contained, robust, works offline & via file:// protocol
  */
 
@@ -39,13 +40,15 @@ const KCI_DATA = {
   }
 };
 
-// 프레젠테이션 컨트롤러
 class PresentationController {
   constructor() {
     this.slides = document.querySelectorAll(".slide");
     this.totalSlides = this.slides.length;
     this.currentIndex = 0;
     this.isNotesOpen = false;
+
+    // 모션 감소 선호 여부 확인
+    this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // UI 요소
     this.pageDisplay = document.getElementById("page-number-display");
@@ -153,20 +156,29 @@ class PresentationController {
   }
 
   updateControls() {
-    // 번호 표시 (두 자리 패딩: 01 / 20)
+    // 번호 표시 (01 / 20)
     const curStr = String(this.currentIndex + 1).padStart(2, "0");
     const totStr = String(this.totalSlides).padStart(2, "0");
     if (this.pageDisplay) {
       this.pageDisplay.textContent = `${curStr} / ${totStr}`;
     }
 
-    // 프로그레스 바
+    // 프로그레스 바 (Anime.js 활용 부드러운 전환)
     if (this.progressBar) {
-      const progress = ((this.currentIndex + 1) / this.totalSlides) * 100;
-      this.progressBar.style.width = `${progress}%`;
+      const targetWidth = ((this.currentIndex + 1) / this.totalSlides) * 100;
+      if (window.anime && !this.prefersReducedMotion) {
+        anime({
+          targets: this.progressBar,
+          width: `${targetWidth}%`,
+          duration: 350,
+          easing: "easeOutQuad"
+        });
+      } else {
+        this.progressBar.style.width = `${targetWidth}%`;
+      }
     }
 
-    // 버튼 활성화 상태
+    // 버튼 상태
     if (this.prevBtn) this.prevBtn.disabled = this.currentIndex === 0;
     if (this.nextBtn) this.nextBtn.disabled = this.currentIndex === this.totalSlides - 1;
   }
@@ -202,39 +214,47 @@ class PresentationController {
   }
 
   animateSlideContent(slideElement) {
-    // 숫자 카운트업 애니메이션
+    if (this.prefersReducedMotion) return;
+
+    // Anime.js를 활용한 카드 및 요소 순차 등장 (Stagger)
+    if (window.anime) {
+      const staggerTargets = slideElement.querySelectorAll(".stat-card, .info-card, .roadmap-step");
+      if (staggerTargets.length > 0) {
+        anime({
+          targets: staggerTargets,
+          translateY: [16, 0],
+          opacity: [0.3, 1],
+          delay: anime.stagger(60),
+          duration: 450,
+          easing: "easeOutCubic"
+        });
+      }
+    }
+
+    // 숫자 카운트업 애니메이션 (Anime.js 지원)
     const counters = slideElement.querySelectorAll(".count-up");
     counters.forEach(counter => {
       const target = parseFloat(counter.getAttribute("data-target"));
       const isPercent = counter.getAttribute("data-percent") === "true";
-      const duration = 800;
-      const startTime = performance.now();
 
-      const updateCount = (currentTime) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        // easeOutQuad
-        const easeVal = 1 - (1 - progress) * (1 - progress);
-        const currentVal = target * easeVal;
-
-        if (isPercent) {
-          counter.textContent = currentVal.toFixed(1) + "%";
-        } else {
-          counter.textContent = Math.round(currentVal).toLocaleString();
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCount);
-        } else {
-          if (isPercent) {
-            counter.textContent = target.toFixed(1) + "%";
-          } else {
-            counter.textContent = Math.round(target).toLocaleString();
+      if (window.anime) {
+        const obj = { val: 0 };
+        anime({
+          targets: obj,
+          val: target,
+          duration: 800,
+          easing: "easeOutExpo",
+          update: () => {
+            if (isPercent) {
+              counter.textContent = obj.val.toFixed(1) + "%";
+            } else {
+              counter.textContent = Math.round(obj.val).toLocaleString();
+            }
           }
-        }
-      };
-
-      requestAnimationFrame(updateCount);
+        });
+      } else {
+        counter.textContent = isPercent ? target.toFixed(1) + "%" : Math.round(target).toLocaleString();
+      }
     });
 
     // 바 필 애니메이션
@@ -249,17 +269,11 @@ class PresentationController {
   }
 
   renderCharts() {
-    // 캔버스 기반 자체 렌더링 (외부 라이브러리 비의존)
+    // Canvas 기반 자체 렌더링 (도넛 및 수평 막대)
     this.renderDonutChart("chart-publishers", [
       { label: "학회", value: 3466, color: "#3b82f6" },
       { label: "대학부설연구소", value: 2664, color: "#0ea5e9" },
       { label: "기타(일반)기관", value: 229, color: "#64748b" }
-    ]);
-
-    this.renderBarChart("chart-indexed-status", [
-      { label: "우수등재", value: 67, color: "#f59e0b" },
-      { label: "등재", value: 2691, color: "#3b82f6" },
-      { label: "등재후보", value: 174, color: "#06b6d4" }
     ]);
 
     this.renderHorizontalBarChart("chart-org-structure", [
@@ -280,14 +294,15 @@ class PresentationController {
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
     ctx.scale(dpr, dpr);
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const outerRadius = Math.min(centerX, centerY) * 0.8;
-    const innerRadius = outerRadius * 0.55;
+    const outerRadius = Math.min(centerX, centerY) * 0.75;
+    const innerRadius = outerRadius * 0.52;
 
     const total = items.reduce((sum, item) => sum + item.value, 0);
     let startAngle = -0.5 * Math.PI;
@@ -303,58 +318,15 @@ class PresentationController {
       startAngle += sliceAngle;
     });
 
-    // 중앙 텍스트
     ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 18px " + getComputedStyle(document.body).fontFamily;
+    ctx.font = "bold 16px " + getComputedStyle(document.body).fontFamily;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(`${total.toLocaleString()}종`, centerX, centerY - 8);
 
     ctx.fillStyle = "#94a3b8";
-    ctx.font = "12px " + getComputedStyle(document.body).fontFamily;
-    ctx.fillText("합계", centerX, centerY + 14);
-  }
-
-  renderBarChart(canvasId, items) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
-
-    const padding = { top: 30, right: 30, bottom: 40, left: 60 };
-    const chartWidth = rect.width - padding.left - padding.right;
-    const chartHeight = rect.height - padding.top - padding.bottom;
-
-    const maxValue = Math.max(...items.map(i => i.value)) * 1.15;
-    const barWidth = Math.min(60, chartWidth / (items.length * 2));
-    const step = chartWidth / items.length;
-
-    items.forEach((item, idx) => {
-      const x = padding.left + idx * step + (step - barWidth) / 2;
-      const barH = (item.value / maxValue) * chartHeight;
-      const y = padding.top + chartHeight - barH;
-
-      // 막대
-      ctx.fillStyle = item.color;
-      ctx.beginPath();
-      ctx.roundRect(x, y, barWidth, barH, [6, 6, 0, 0]);
-      ctx.fill();
-
-      // 수치 텍스트
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 13px monospace";
-      ctx.textAlign = "center";
-      ctx.fillText(item.value.toLocaleString(), x + barWidth / 2, y - 8);
-
-      // 라벨
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "12px " + getComputedStyle(document.body).fontFamily;
-      ctx.fillText(item.label, x + barWidth / 2, padding.top + chartHeight + 20);
-    });
+    ctx.font = "11px " + getComputedStyle(document.body).fontFamily;
+    ctx.fillText("합계", centerX, centerY + 12);
   }
 
   renderHorizontalBarChart(canvasId, items) {
@@ -363,6 +335,7 @@ class PresentationController {
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
     ctx.scale(dpr, dpr);
@@ -377,28 +350,24 @@ class PresentationController {
       const y = padding.top + idx * rowHeight + rowHeight * 0.25;
       const barH = rowHeight * 0.45;
 
-      // 라벨
       ctx.fillStyle = "#ffffff";
       ctx.font = "13px " + getComputedStyle(document.body).fontFamily;
       ctx.textAlign = "right";
       ctx.textBaseline = "middle";
       ctx.fillText(item.label, padding.left - 15, y + barH / 2);
 
-      // 배경 트랙 (전체 기관 수)
       const trackW = (item.total / maxTotal) * chartWidth;
       ctx.fillStyle = "rgba(255, 255, 255, 0.08)";
       ctx.beginPath();
       ctx.roundRect(padding.left, y, trackW, barH, 4);
       ctx.fill();
 
-      // 등재기관 수 채우기
       const fillW = (item.value / maxTotal) * chartWidth;
       ctx.fillStyle = item.color;
       ctx.beginPath();
       ctx.roundRect(padding.left, y, fillW, barH, 4);
       ctx.fill();
 
-      // 수치 라벨
       const ratio = ((item.value / item.total) * 100).toFixed(1);
       ctx.fillStyle = "#38bdf8";
       ctx.font = "bold 12px monospace";
@@ -408,7 +377,6 @@ class PresentationController {
   }
 }
 
-// DOM 로드 완료 후 실행
 document.addEventListener("DOMContentLoaded", () => {
   window.presentation = new PresentationController();
 });
